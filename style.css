@@ -1,0 +1,71 @@
+body {
+    font-family: sans-serif;
+    background-color: #fff;
+  }
+  
+  header {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    color: #ccc;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  .search {
+    background-color: #eee;
+  }
+  
+  .listings {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .listings li {
+    width: 25%;
+    margin-bottom: 20px;
+  }
+  
+  .listings li a {
+    display: block;
+  }
+  
+  .listings li a img {
+    width: 100%;
+  }
+  
+  .listings li h3 {
+    margin-top: 0;
+  }
+  
+  footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
