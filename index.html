@@ -18,66 +18,52 @@
             <span class="second">| facile et rapide</span>
         </span>
     </div>
-  </div> 
+  </div>
 
   <!-----------------------------------------------------------------  DIV CONTAINER  ----------------------------------------------------------------->
 
   <div id="my-div">
     <div class="container">
+
       <h1>Estimation<c style="color: white;">.com</c></h1>
       <h2>Estimez votre bien immobilier partout en Gironde</h2>
+
       <div class="inputs">
         
           <input type="text" placeholder="Ville">
           <input type="text" placeholder="Type de bien">
-          <input type="text" placeholder="Prix">
-          <input type="submit" value="Rechercher">
+          <input type="text" placeholder="Surface (m2)">
+          <input class="but" type="submit" value="Rechercher">
   
         </form>
       </div>
     </div>
   </div>
 
-  <div style="height: 100vh;">
 
-  </div>
+    <div id="resultat"class="resultat hidden2" >
+      
+      <div class="caracterisique">
+        <div class="box1">
+          <img id="typedebien" src="">
+          <div><h2>Type de bien: <span id="bien"></span></h2></div>
+        </div>
 
-  <!--<header>
-    <h1>Estimation.com</h1>
-    <nav>
-      <a href="#">Accueil</a>
-      <a href="#">Locations</a>
-      <a href="#">Ventes</a>
-      <a href="#">Services</a>
-    </nav>
-  </header>
-   <main>
-    <section class="search">
-      <h2>Estimez votre bien</h2>
-
-      <form method="get" action="#">
-        <p>
-          <label for="pays">Ville</label><br>
-            <select name="pays" id="pays" placeholder="Pays">
-                <option value="" selected></option>
-                <option value="espagne">Espagne</option>
-                <option value="royaume-uni">Royaume-Uni</option>
-                <option value="canada">Canada</option>
-                <option value="japon">Japon</option>
-            </select>
-          </p>
-        <input type="text" placeholder="Ville">
-        <input type="text" placeholder="Type de bien">
-        <input type="text" placeholder="Prix">
-        <input type="submit" value="Rechercher">
-
-      </form>
-    </section>
-    
-  </main> -->
+        <div class="box2">
+          <h1>Ville : <span class="ville"></span></h1>
+          <h1>Surface habitable: <span class="surface"></span> m<sup>2</sup></h1>
+        </div>
+      </div>
+      
+      <div class="box3">
+        <h1>Prix estimé : <span class="prixfinal"></span> €</h1>
+      </div>
   <footer>
     <p>Estimation.com, le site de référence des estimations immobilières</p>
   </footer>
+</div>
+
+  
   <script src="app.js"></script>
 </body>
 </html>
