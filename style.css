@@ -211,6 +211,7 @@ html {
 }
 .resultat {
   height: 100vh;
+  background: url('c.png');
 }
 
 .caracterisique {
