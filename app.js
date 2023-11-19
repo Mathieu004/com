@@ -47,8 +47,8 @@ document.querySelector('.but').addEventListener('click', function() {
     const surfaceH = document.querySelector('.surface');
     const prix = document.querySelector('.prixfinal');
 
-    if ((typeBienValue === 'maison' || typeBienValue === 'Maison') 
-    || (typeBienValue === 'appartement' || typeBienValue === 'Appartement')
+    if (((typeBienValue === 'maison' || typeBienValue === 'Maison') 
+    || (typeBienValue === 'appartement' || typeBienValue === 'Appartement'))
     && villeValue != '' && surfaceValue != '' && typeBienValue != '') {
     
         resultat.classList.remove('hidden2');
