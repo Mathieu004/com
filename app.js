@@ -28,18 +28,18 @@ function preventDefault(e) {
 
 
 /*---------------------------------------------------------- FORMULAIRE -------------------------------------------------------------*/
-  
+
 document.querySelector('.but').addEventListener('click', function() {
+    const citySquareMeterPrices = {
+        Bordeaux: 4706,
+        Merignac: 3771,
+        Megles: 3892,
+        Villenave_dornon: 3531,
+        Pessac: 3870,
+        Talence: 4158,
+        Gradignan: 3637,
+    };
     const image = document.querySelector('#typedebien');
-
-    const typeBienInput = document.querySelector('input[type="text"][placeholder="Type de bien"]');
-    const typeBienValue = typeBienInput.value;
-
-    const villeInput = document.querySelector('input[type="text"][placeholder="Ville"]');
-    const villeValue = villeInput.value;
-
-    const surface = document.querySelector('input[type="text"][placeholder="Surface (m2)"]');
-    const surfaceValue = surface.value;
 
     const resultat = document.querySelector('.resultat');
 
@@ -47,21 +47,49 @@ document.querySelector('.but').addEventListener('click', function() {
     const surfaceH = document.querySelector('.surface');
     const prix = document.querySelector('.prixfinal');
 
-    if (((typeBienValue === 'maison' || typeBienValue === 'Maison') 
-    || (typeBienValue === 'appartement' || typeBienValue === 'Appartement'))
-    && villeValue != '' && surfaceValue != '' && typeBienValue != '') {
-    
+    const surface = document.querySelector('input[type="text"][placeholder="Surface (m2)"]');
+    const surfaceValue = surface.value;
+    //const propertyRooms = parseInt(document.getElementById('property-rooms').value);
+    const typeBienValue = document.getElementById('property-type').value;
+    const villeValue = document.getElementById('property-city').value;
+    let baseEstimation = 1000;
+
+    if (typeBienValue === 'maison' || typeBienValue === 'appartement' && villeValue != 'ville' && villeValue != '--' && typeBienValue != 'Type de bien' && typeBienValue != '--'&& surfaceValue != '') {
         resultat.classList.remove('hidden2');
     
-        if (typeBienValue === 'maison' || typeBienValue === 'Maison') {
+        if (typeBienValue === 'maison') {
+            baseEstimation *= 2;
+            alert(villeValue)
+
+            if (citySquareMeterPrices[villeValue]) {
+                baseEstimation *= citySquareMeterPrices[villeValue] / 1000;
+            } else {
+                console.error('Prix du mètre carré non défini pour la ville sélectionnée.');
+                return;
+            }
+
             image.src = 'maison.jpg';
             document.querySelector('#bien').textContent = 'Maison';
-            prix.textContent = 5000*surfaceValue;
-        } else if (typeBienValue === 'appartement' || typeBienValue === 'Appartement') {
+
+            prix.textContent = baseEstimation * surfaceValue /*+ propertyRooms*/ * 5000;
+        } else if (typeBienValue === 'appartement') {
+            baseEstimation *= 1.5;
+            if (citySquareMeterPrices[villeValue]) {
+                baseEstimation *= citySquareMeterPrices[villeValue] / 1000;
+            } else {
+                console.error('Prix du mètre carré non défini pour la ville sélectionnée.');
+                return;
+            }
+
             image.src = 'appartement.png';
             document.querySelector('#bien').textContent = 'Appartement';
-            prix.textContent = 4000*surfaceValue;
+
+            prix.textContent = baseEstimation * surfaceValue /*+ propertyRooms*/ * 5000;
         }
+
+        
+
+        
 
         ville.textContent = villeValue;
         surfaceH.textContent = surfaceValue;
@@ -69,3 +97,4 @@ document.querySelector('.but').addEventListener('click', function() {
         window.scrollTo(0, resultat.offsetTop);
         }
 });
+

@@ -10,7 +10,7 @@
 <!-----------------------------------------------------------------  OVERLAY  ----------------------------------------------------------------->
 <body>
 
-  <div class="overlay">
+  <!-- <div class="overlay">
     <div class="animation-presentation">
         <span class="first">Estimation.com</span>
         <span></span>
@@ -18,7 +18,7 @@
             <span class="second">| facile et rapide</span>
         </span>
     </div>
-  </div>
+  </div>  -->
 
   <!-----------------------------------------------------------------  DIV CONTAINER  ----------------------------------------------------------------->
 
@@ -30,10 +30,27 @@
 
       <div class="inputs">
         
-          <input type="text" placeholder="Ville">
-          <input type="text" placeholder="Type de bien">
+        <select id="property-city" name="property-city">
+          <option value="ville">Ville</option>
+          <option value="--">--</option>
+          <option value="Bordeaux">Bordeaux</option>
+          <option value="Merignac">Mérignac</option>
+          <option value="Begles">Bègles</option>
+          <option value="Villenave_dornon">Villenave-d'Ornon</option>
+          <option value="Pessac">Pessac</option>
+          <option value="Talence">Talence</option>
+          <option value="Gradignan">Gradignan</option>
+      </select>
+
+          <select id="property-type" name="property-type">
+            <option value="type de bien">Type de bien</option>
+            <option value="--">--</option>
+            <option value="appartement">Appartement</option>
+            <option value="maison">Maison</option>
+          </select>
+
           <input type="text" placeholder="Surface (m2)">
-          <input class="but" type="submit" value="Rechercher">
+          <input class="but" type="submit" value="Estimer">
   
         </form>
       </div>

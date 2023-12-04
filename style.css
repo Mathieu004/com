@@ -189,6 +189,15 @@ html {
   margin-bottom: 3%;
 } 
 
+.inputs select {
+  border: solid 2px orange;
+  width: 32%;
+  height: 4vh;
+  border-radius: 5px;
+  padding-left: 1%;
+  margin-bottom: 3%;
+} 
+
 .inputs .but {
   background-color: rgba(0, 0, 0, 0.724);
   color: orange;
@@ -206,6 +215,7 @@ html {
 }
 
 /*---------------------------------------------------------- RESULTAT -------------------------------------------------------------*/
+
 .hidden2 {
   display: none;
 }
