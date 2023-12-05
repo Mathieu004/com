@@ -46,15 +46,16 @@ document.querySelector('.but').addEventListener('click', function() {
     const ville = document.querySelector('.ville');
     const surfaceH = document.querySelector('.surface');
     const prix = document.querySelector('.prixfinal');
+    const pieces = document.querySelector('.pieces');
 
     const surface = document.querySelector('input[type="text"][placeholder="Surface (m2)"]');
     const surfaceValue = surface.value;
-    //const propertyRooms = parseInt(document.getElementById('property-rooms').value);
+    const piecesValue = parseInt(document.getElementById('property-rooms').value);
     const typeBienValue = document.getElementById('property-type').value;
     const villeValue = document.getElementById('property-city').value;
     let baseEstimation = 1000;
 
-    if (typeBienValue === 'maison' || typeBienValue === 'appartement' && villeValue != 'ville' && villeValue != '--' && typeBienValue != 'Type de bien' && typeBienValue != '--'&& surfaceValue != '') {
+    if (typeBienValue === 'maison' || typeBienValue === 'appartement' && villeValue != 'ville' && villeValue != '--' && typeBienValue != 'Type de bien' && typeBienValue != '--'&& surfaceValue != '' && piecesValue > 0) {
         resultat.classList.remove('hidden2');
     
         if (typeBienValue === 'maison') {
@@ -71,7 +72,7 @@ document.querySelector('.but').addEventListener('click', function() {
             image.src = 'maison.jpg';
             document.querySelector('#bien').textContent = 'Maison';
 
-            prix.textContent = baseEstimation * surfaceValue /*+ propertyRooms*/ * 5000;
+            prix.textContent = baseEstimation * surfaceValue + piecesValue * 5000;
         } else if (typeBienValue === 'appartement') {
             baseEstimation *= 1.5;
             if (citySquareMeterPrices[villeValue]) {
@@ -84,7 +85,8 @@ document.querySelector('.but').addEventListener('click', function() {
             image.src = 'appartement.png';
             document.querySelector('#bien').textContent = 'Appartement';
 
-            prix.textContent = baseEstimation * surfaceValue /*+ propertyRooms*/ * 5000;
+            prix.textContent = baseEstimation * surfaceValue + piecesValue * 5000;
+            pieces.textContent = piecesValue;
         }
 
         

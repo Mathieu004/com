@@ -176,13 +176,12 @@ html {
 
 .inputs {
   align-items: center;
-  text-align: center;
   padding: 0;
 }
 
 .inputs input {
   border: solid 2px orange;
-  width: 32.8%;
+  width: 32%;
   height: 4vh;
   border-radius: 5px;
   padding-left: 1%;
@@ -196,12 +195,40 @@ html {
   border-radius: 5px;
   padding-left: 1%;
   margin-bottom: 3%;
-} 
+}
+
+.inputs .option {
+  position: absolute;
+  top: 80%;
+  left: 38%;
+}
+
+.inputs .option .toto label {
+  color: orange;
+  text-shadow: black 1px 1px;
+}
+
+.inputs .carre {
+  width: 15px;
+  padding: 0;
+  margin: 0;
+  margin-right: 5px;
+}
+
+.toto {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
 
 .inputs .but {
   background-color: rgba(0, 0, 0, 0.724);
   color: orange;
   font-weight: bold;
+  position: absolute;
+  top: 10%;
+  left: 210%;
+  width: 11.5vw;
 }
 
 .inputs .but:hover {
