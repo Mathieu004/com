@@ -99,4 +99,3 @@ document.querySelector('.but').addEventListener('click', function() {
         window.scrollTo(0, resultat.offsetTop);
         }
 });
-
