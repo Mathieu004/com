@@ -47,20 +47,22 @@ document.querySelector('.but').addEventListener('click', function() {
     const surfaceH = document.querySelector('.surface');
     const prix = document.querySelector('.prixfinal');
     const pieces = document.querySelector('.pieces');
+    const annexe = document.querySelector('.annexe');
 
     const surface = document.querySelector('input[type="text"][placeholder="Surface (m2)"]');
     const surfaceValue = surface.value;
     const piecesValue = parseInt(document.getElementById('property-rooms').value);
     const typeBienValue = document.getElementById('property-type').value;
     const villeValue = document.getElementById('property-city').value;
-    let baseEstimation = 1000;
+    const annexeValue = document.getElementById('property-annexe').value;
 
-    if (typeBienValue === 'maison' || typeBienValue === 'appartement' && villeValue != 'ville' && villeValue != '--' && typeBienValue != 'Type de bien' && typeBienValue != '--'&& surfaceValue != '' && piecesValue > 0) {
+    let baseEstimation = 1000;
+    if (typeBienValue === 'maison' || typeBienValue === 'appartement' && villeValue != 'ville' && villeValue != '--' && typeBienValue != 'Type de bien' && typeBienValue != '--'&& surfaceValue != '' && piecesValue > 0 && annexeValue != '--' && annexeValue != 'Bien annexe') {
+        
         resultat.classList.remove('hidden2');
     
         if (typeBienValue === 'maison') {
             baseEstimation *= 2;
-            alert(villeValue)
 
             if (citySquareMeterPrices[villeValue]) {
                 baseEstimation *= citySquareMeterPrices[villeValue] / 1000;
@@ -72,7 +74,23 @@ document.querySelector('.but').addEventListener('click', function() {
             image.src = 'maison.jpg';
             document.querySelector('#bien').textContent = 'Maison';
 
-            prix.textContent = baseEstimation * surfaceValue + piecesValue * 5000;
+            if(annexeValue === 'jardin') {
+                annexe.textContent = "Jardin";
+                prix.textContent = baseEstimation * surfaceValue + piecesValue * 5000 + 8000;
+            }
+            else if(annexeValue === 'garage') {
+                annexe.textContent = "Garage";
+                prix.textContent = baseEstimation * surfaceValue + piecesValue * 5000 + 5000;
+            }
+            else if(annexeValue === 'deux') {
+                annexe.textContent = "Garage & Jardin";
+                prix.textContent = baseEstimation * surfaceValue + piecesValue * 5000 + 8000 + 5000;
+            }
+            else if(annexeValue === 'aucun') {
+                annexe.textContent = "Aucun";
+                prix.textContent = baseEstimation * surfaceValue + piecesValue * 5000;
+            }  
+
         } else if (typeBienValue === 'appartement') {
             baseEstimation *= 1.5;
             if (citySquareMeterPrices[villeValue]) {
@@ -85,17 +103,31 @@ document.querySelector('.but').addEventListener('click', function() {
             image.src = 'appartement.png';
             document.querySelector('#bien').textContent = 'Appartement';
 
-            prix.textContent = baseEstimation * surfaceValue + piecesValue * 5000;
-            pieces.textContent = piecesValue;
+            if(annexeValue === 'jardin') {
+                annexe.textContent = "Jardin";
+                prix.textContent = baseEstimation * surfaceValue + piecesValue * 5000 + 8000;
+            }
+            else if(annexeValue === 'garage') {
+                annexe.textContent = "Garage";
+                prix.textContent = baseEstimation * surfaceValue + piecesValue * 5000 + 5000;
+            }
+            else if(annexeValue === 'deux') {
+                annexe.textContent = "Garage & Jardin";
+                prix.textContent = baseEstimation * surfaceValue + piecesValue * 5000 + 8000 + 5000;
+            }
+            else if(annexeValue === 'aucun') {
+                annexe.textContent = "Aucun";
+                prix.textContent = baseEstimation * surfaceValue + piecesValue * 5000;
+            }  
         }
-
-        
-
-        
-
+        pieces.textContent = piecesValue;
         ville.textContent = villeValue;
         surfaceH.textContent = surfaceValue;
+        
 
         window.scrollTo(0, resultat.offsetTop);
+        }
+        else {
+            alert("Veuillez renseigner tous les champs");
         }
 });

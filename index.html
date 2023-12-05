@@ -10,7 +10,7 @@
 <!-----------------------------------------------------------------  OVERLAY  ----------------------------------------------------------------->
 <body>
 
-  <!-- <div class="overlay">
+  <div class="overlay">
     <div class="animation-presentation">
         <span class="first">Estimation.com</span>
         <span></span>
@@ -18,7 +18,7 @@
             <span class="second">| facile et rapide</span>
         </span>
     </div>
-  </div>  -->
+  </div>
 
   <!-----------------------------------------------------------------  DIV CONTAINER  ----------------------------------------------------------------->
 
@@ -50,7 +50,16 @@
           </select>
 
           <input type="text" placeholder="Surface (m2)">
-          <input type="number" id="property-rooms" name="property-rooms" placeholder="Nombre de pièces"><div class="option"></div>
+          <input type="number" id="property-rooms" name="property-rooms" placeholder="Nombre de pièces">
+
+          <select id="property-annexe" name="bienAnnexe">
+            <option value="Bien annexe">Bien annexe</option>
+            <option value="--">--</option>
+            <option value="aucun">Aucun</option>
+            <option value="garage">Garage</option>
+            <option value="jardin">Jardin</option>
+            <option value="deux">Garage & Jardin</option>
+          </select>
           <input class="but" type="submit" value="Estimer">
   
         </form>
@@ -70,6 +79,8 @@
         <div class="box2">
           <h1>Ville : <span class="ville"></span></h1>
           <h1>Surface habitable: <span class="surface"></span> m<sup>2</sup></h1>
+          <h1>Nombre de pièces : <span class="pieces"></span></h1>
+          <h1>Bien annexe : <span class="annexe"></span></h1>
         </div>
       </div>
       
